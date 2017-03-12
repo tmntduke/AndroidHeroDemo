@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.Scroller;
 
 /**
+ * scroll
  * Created by tmnt on 2017/3/10.
  */
 public class ScorllLayout extends LinearLayout {
