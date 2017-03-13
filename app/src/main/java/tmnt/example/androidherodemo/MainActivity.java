@@ -29,26 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mList = new ArrayList<>();
-        mList.add("tmnt");
-        mList.add("tony");
-        mList.add("tom");
-        mList.add("any");
-        mList.add("duke");
-        mList.add("joury");
-        mList.add("bob");
-        mList.add("jommes");
-        mList.add("banana");
-        mList.add("apple");
-        mList.add("chain");
-        mList.add("master");
-        mList.add("list");
-        mList.add("over");
-        mList.add("lenovo");
-        mList.add("sony");
-        mList.add("ASUS");
-        mList.add("LG");
-        mList.add("san");
+        getData();
 
         mListView = (ListView) findViewById(R.id.list);
         top = (TextView) findViewById(R.id.header);
@@ -57,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
         ListSelectAdpter adaAdpter = new ListSelectAdpter(this, mList);
         mListView.setAdapter(adaAdpter);
 
+        init();
+    }
+
+    private void init() {
         mListView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -86,10 +71,38 @@ public class MainActivity extends AppCompatActivity {
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent in = new Intent(MainActivity.this, SecondActivity.class);
-                startActivity(in);
+                if (position > 3) {
+                    Intent in = new Intent(MainActivity.this, SecondActivity.class);
+                    startActivity(in);
+                } else {
+                    Intent in = new Intent(MainActivity.this, ThirdActivity.class);
+                    startActivity(in);
+                }
             }
         });
+    }
+
+    private void getData() {
+        mList = new ArrayList<>();
+        mList.add("tmnt");
+        mList.add("tony");
+        mList.add("tom");
+        mList.add("any");
+        mList.add("duke");
+        mList.add("joury");
+        mList.add("bob");
+        mList.add("jommes");
+        mList.add("banana");
+        mList.add("apple");
+        mList.add("chain");
+        mList.add("master");
+        mList.add("list");
+        mList.add("over");
+        mList.add("lenovo");
+        mList.add("sony");
+        mList.add("ASUS");
+        mList.add("LG");
+        mList.add("san");
     }
 
 }
